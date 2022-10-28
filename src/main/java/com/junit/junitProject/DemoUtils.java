@@ -56,4 +56,8 @@ public class DemoUtils {
         System.out.println("Sleeping over");
     }
 
+    public int multiply(int a, int b){
+        return a*b;
+    }
+
 }
