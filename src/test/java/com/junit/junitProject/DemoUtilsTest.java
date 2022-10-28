@@ -1,12 +1,14 @@
 package com.junit.junitProject;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 //@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 //@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
-@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+//@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 class DemoUtilsTest {
     DemoUtils demoUtils;
 
@@ -18,7 +20,7 @@ class DemoUtilsTest {
 
 
     @Test
-    //@DisplayName("Equals and not Equals")
+    @DisplayName("Equals and not Equals")
     void testEqualsAndNotEquals() {
         //System.out.println("Running test: testEqualsAndNotEquals");
 
@@ -40,7 +42,7 @@ class DemoUtilsTest {
     }
 
     @Test
-    //@DisplayName("Null and not null")
+    @DisplayName("Null and not null")
     void testNullAndNotNull() {
         //System.out.println("Running test: testNullAndNotNull");
         String str1 = null;
@@ -49,6 +51,24 @@ class DemoUtilsTest {
         assertNull(demoUtils.checkNull(str1), "Object should be null");
         assertNotNull(demoUtils.checkNull(str2), "Object should not be null");
     }
+
+    @DisplayName("Same and not Same")
+    @Test
+    void testSameAndNotSame() {
+        String str = "luv2code";
+        assertSame(demoUtils.getAcademy(), demoUtils.getAcademyDuplicate(), "Object should refer to same object");
+        assertNotSame(str, demoUtils.getAcademy(), "Objects should not refer to same object");
+    }
+
+    @DisplayName("True and false")
+    @Test
+    void testTrueFalse() {
+        int gradeOne = 10;
+        int gradeTwo = 5;
+        assertTrue(demoUtils.isGreater(gradeOne, gradeTwo), "This should return true");
+        assertFalse(demoUtils.isGreater(gradeTwo, gradeOne), "This should return false");
+    }
+
 
    /* @AfterEach
     void tearDownAfterEach() {
