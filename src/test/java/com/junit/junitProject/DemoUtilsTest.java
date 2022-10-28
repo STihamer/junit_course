@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -90,9 +91,28 @@ class DemoUtilsTest {
     @Test
     void testLinesMatch() {
         List<String> theList = List.of("luv", "2", "code");
-       assertLinesMatch(theList, demoUtils.getAcademyInLst(), "Lines should match");
+        assertLinesMatch(theList, demoUtils.getAcademyInLst(), "Lines should match");
     }
 
+    @DisplayName("Throws and Does Not Throw")
+    @Test
+    void testThrowsAndDoesNotThrow() {
+        assertThrows(Exception.class, () -> {
+            demoUtils.throwException(-1);
+        }, "Should throw exception");
+        assertDoesNotThrow(() -> {
+            demoUtils.throwException(5);
+        }, "Should throw exception");
+    }
+
+    @DisplayName("Timeout")
+    @Test
+    void TestTimeout() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            demoUtils.checkTimeout();
+        }, "Method should execute in 3" +
+                " seconds");
+    }
 
 
    /* @AfterEach
