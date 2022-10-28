@@ -1,6 +1,6 @@
 package com.junit.tdd;
 
-public class FIzzBUzz {
+public class FizzBuzz {
 
     //If number is divisible by 5, print Buzz
     // If number is divisible by3 and 5, print FizzBuzz
@@ -31,6 +31,7 @@ public class FIzzBUzz {
         if (result.isEmpty()) {
             result.append(i);
         }
+
         return result.toString();
     }
 
