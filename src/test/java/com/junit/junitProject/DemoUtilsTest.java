@@ -4,21 +4,23 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+//@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+//@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
 class DemoUtilsTest {
     DemoUtils demoUtils;
 
     @BeforeEach
     void setupBeforeEach() {
         demoUtils = new DemoUtils();
-        System.out.println("@BeforeEach executes before the execution of each test method");
+        //System.out.println("@BeforeEach executes before the execution of each test method");
     }
 
 
     @Test
-    @DisplayName("Equals and not Equals")
+    //@DisplayName("Equals and not Equals")
     void testEqualsAndNotEquals() {
-        System.out.println("Running test: testEqualsAndNotEquals");
+        //System.out.println("Running test: testEqualsAndNotEquals");
 
         //setup
 
@@ -38,9 +40,9 @@ class DemoUtilsTest {
     }
 
     @Test
-    @DisplayName("Null and not null")
+    //@DisplayName("Null and not null")
     void testNullAndNotNull() {
-        System.out.println("Running test: testNullAndNotNull");
+        //System.out.println("Running test: testNullAndNotNull");
         String str1 = null;
         String str2 = "luvcode";
 
